@@ -16,7 +16,7 @@ LINE_AUTH_QUERY_PATH = '/api/v4p/rs'
 LINE_AUTH_QUERY_PATH_FIR = '/api/v4/TalkService.do'
 LINE_CERTIFICATE_PATH = '/Q'
 LINE_API_QUERY_PATH_FIR = '/S4'
-UA, LA = ("Line/8.0.1",'DESKTOPMAC 10.10.2-YOSEMITE-x64    MAC 4.5.0')
+UA, LA = ("Line/8.2.2",'DESKTOPWIN 8.2.2 CITL_DESIGN 12.0.2')
 _session    = requests.session()
 
 
@@ -69,7 +69,7 @@ class qr():
         #for getRSAKey and getAuthQrCode
         client = createTransport(LINE_AUTH_QUERY_PATH_FIR, None, TalkService.Client)
 
-        qr = client.getAuthQrcode(keepLoggedIn=1, systemName="test")
+        qr = client.getAuthQrcode(keepLoggedIn=1, systemName="CITL_DESIGN")
         uri = "line://au/q/" + qr.verifier
         clb = LineCallback(defaultCallback)
         clb.QrUrl(uri, 1)
